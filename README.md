@@ -1,2 +1,5 @@
 # cereal
-a cereal review site
+
+a cereal review website
+
+
