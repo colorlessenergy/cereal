@@ -1,0 +1,22 @@
+{
+  "name": "cereal",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/colorlessenergy/cereal.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/colorlessenergy/cereal/issues"
+  },
+  "homepage": "https://github.com/colorlessenergy/cereal#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
