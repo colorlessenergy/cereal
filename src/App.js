@@ -4,7 +4,6 @@ import Register from './components/Register/Register';
 import Home from './components/Home/Home';
 import NavBar from './components/NavBar/NavBar';
 
-import { connect } from 'react-redux'
 import {
   BrowserRouter,
   Switch,
@@ -28,11 +27,5 @@ class App extends Component {
   }
 }
 
-const mapStateToProps = (state) => {
-  console.log(state)
-  return {
 
-  }
-}
-
-export default connect(mapStateToProps)(App);
+export default App;

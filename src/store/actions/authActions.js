@@ -14,3 +14,31 @@ export const logInUserAction = (user) => {
     });
   }
 }
+
+export const logOutUserAction = () => {
+  return (dispatch, getState, { getFirebase }) => {
+    const firebase = getFirebase();
+
+    firebase.auth().signOut()
+      .then(() => {
+        dispatch({ type: 'LOGOUT_SUCCESS' });
+      });
+  } 
+}
+
+export const createUserAction = (user) => {
+  return (dispatch, getState, { getFirebase }) => {
+    const firebase = getFirebase();
+
+    firebase.auth().createUserWithEmailAndPassword(
+      user.email,
+      user.password)
+      .then((resp) => {
+        // Later on use res.user.uid to create a user in mongodb
+        dispatch({ type: 'CREATEUSER_SUCCESS' })
+      })
+      .catch(err => {
+        dispatch({ type: 'CREATEUSER_ERROR', err})
+      });
+  }
+}

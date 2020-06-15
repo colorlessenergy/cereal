@@ -1,12 +1,27 @@
 import React from 'react'
 
-import {Link} from 'react-router-dom'
 
-export default function NavBar() {
+import LogInLinks from './LogInLinks';
+import LogOutLinks from './LogOutLinks';
+import { connect } from 'react-redux';
+
+function NavBar(props) {
+  const { auth } = props;
   return (
     <div>
-      <Link to='/login'>login</Link>
-      <Link to='/register'>register</Link>
+      { auth.uid ? (
+        <LogInLinks />
+      ) : (
+          <LogOutLinks />
+      )}
     </div>
   )
 }
+
+const mapStateToProps = (state) => {
+  return {
+    auth: state.firebase.auth
+  }
+}
+
+export default connect(mapStateToProps)(NavBar);
