@@ -42,7 +42,7 @@ class Register extends Component {
           onChange={this.handleChange}
           id="password" name="password" type="password"></input>
         <button>
-          login
+          register
         </button>
         <div>
           {authError ? (<p>
