@@ -3,7 +3,7 @@ const Users = require('../../models/Schemas/Users');
 exports.getAllUsers = function (req, res, next) {
   Users.find({})
     .then((users) => res.status(200).send(users))
-    .catch(err => res.status(500).send('Interal serve error'))
+    .catch(err => res.status(500).send('Interal server error'))
 }
 
 exports.createUser = function (req, res, next) {
