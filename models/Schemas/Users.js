@@ -7,7 +7,8 @@ let userSchema = new Schema({
     required: true,
     unique: true,
     trim: true
-  }
+  },
+  posts: [{ type: Schema.Types.ObjectId, ref: 'Post' }]
 });
 
 const User = mongoose.model('User', userSchema);
