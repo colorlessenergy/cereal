@@ -1,3 +1,5 @@
+const config = require('../../config/config');
+
 export const logInUserAction = (user) => {
   return (dispatch, getState, { getFirebase }) => {
     const firebase = getFirebase();
@@ -35,6 +37,13 @@ export const createUserAction = (user) => {
       user.password)
       .then((resp) => {
         // Later on use res.user.uid to create a user in mongodb
+        return fetch(config.BACKEND_URL + '/users', {
+          headers: { 'Content-Type': 'application/json' },
+          method: 'POST',
+          body: JSON.stringify({'FIREBASE_ID': resp.user.uid})
+        })
+      })
+      .then(() => {
         dispatch({ type: 'CREATEUSER_SUCCESS' })
       })
       .catch(err => {
