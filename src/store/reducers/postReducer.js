@@ -1,5 +1,7 @@
 const initState = {
-  posts: []
+  posts: [],
+  singlePost: {},
+  error: ''
 }
 
 const postReducer = (state=initState, action) => {
@@ -8,6 +10,18 @@ const postReducer = (state=initState, action) => {
       return {
         ...state,
         posts: action.posts
+      }
+
+    case 'GET_SINGLE_POST_SUCCESS':
+      return {
+        ...state,
+        singlePost: action.post
+      }
+
+    case 'GET_SINGLE_POST_ERROR':
+      return {
+        ...state,
+        error: 'error retrieving post. Try again later'
       }
 
     default:

@@ -3,6 +3,9 @@ import { connect } from 'react-redux';
 
 import { getAllPostAction } from '../../store/actions/postActions';
 
+import { Link } from 'react-router-dom';
+
+
 
 class Home extends Component {
   componentWillMount () {
@@ -10,10 +13,28 @@ class Home extends Component {
   }
 
   render () {
-    console.log(this.props.posts)
+    let posts = this.props.posts ? this.props.posts.map((post) => {
+      return (
+        <Link
+          key={post._id} 
+          to={`/cereal/${post._id}`}>
+          <h2>
+            { post.cereal }
+          </h2>
+          <p>
+            { post.content }
+          </p>
+        </Link>
+      )
+    }) : (null);
+
     return (
       <div>
         <h1>cereal reviews</h1>
+
+        <div>
+          { posts }
+        </div>
       </div>
     )
   }
