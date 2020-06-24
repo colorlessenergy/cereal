@@ -3,6 +3,9 @@ import React, {Component} from 'react';
 import { connect } from 'react-redux';
 import { getSinglePostByIdAction } from '../../store/actions/postActions';
 
+import renderHTML from 'react-render-html';
+
+
 class SinglePost extends Component {
   componentDidMount() {
     this.props.getSinglePostById(this.props.match.params.id)
@@ -10,14 +13,12 @@ class SinglePost extends Component {
 
   render () {
     const {singlePost} = this.props;
-    let post = singlePost ? (
+    let post = singlePost.cereal ? (
       <div>
         <h2>
           {singlePost.cereal}
         </h2>
-        <p>
-          {singlePost.content}
-        </p>
+        {renderHTML(singlePost.content)}
       </div>
     ) :  (null)
 

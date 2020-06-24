@@ -4,6 +4,7 @@ import Register from './components/Register/Register';
 import Home from './components/Home/Home';
 import NavBar from './components/NavBar/NavBar';
 import SinglePost from './components/SinglePost/SinglePost';
+import CreatePost from './components/CreatePost/CreatePost';
 
 import {
   BrowserRouter,
@@ -22,6 +23,7 @@ class App extends Component {
             <Route path='/login' exact component={Login} />
             <Route path='/Register' exact component={Register} />
             <Route path='/cereal/:id' exact component={SinglePost} />
+            <Route path='/create' exact component={CreatePost} />
           </Switch>
         </BrowserRouter>
       </div>
