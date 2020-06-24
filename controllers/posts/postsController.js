@@ -7,6 +7,14 @@ exports.getAllPost = function (req, res, next) {
     .catch((err) => res.status(500).send('internal server error '));
 }
 
+exports.getSinglePostById = function (req, res, next) {
+  Posts.findById(req.params.id)
+    .then(function (post) {
+      return res.status(200).json(post);
+    })
+    .catch(err => res.status(401).send(err));
+}
+
 /**
   create a post. 
   Save the User mongo generated ID to the post and save the ID of the post created to the user.
