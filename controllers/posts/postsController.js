@@ -26,6 +26,14 @@ exports.getSinglePostById = function (req, res, next) {
 */
 
 exports.createPost = function (req, res, next) {
+  if (req.body.cereal === '') {
+    return res.status(400).send('Missing Cereal');
+  }
+
+  if (req.body.content === '') {
+    return res.status(400).send('Missing Content');
+  }
+
   if (req.body['FIREBASE_ID']) {
     Users.findOne({ 'FIREBASE_ID': req.body.FIREBASE_ID })
       .then(function (user) {
@@ -53,12 +61,12 @@ exports.createPost = function (req, res, next) {
           .then(function () {
             return res.status(200).json(savedPost);
           })
-          .catch((err) => res.status(401).send(err));
+          .catch((err) => res.status(500).send(err));
       })
-      .catch(err => res.status(401).send(err));
+      .catch(err => res.status(500).send(err));
 
     
   } else {
-    return res.status(403).send('not authorized to be here');
+    return res.status(401).send('Missing FIREBASE ID');
   }
 }
