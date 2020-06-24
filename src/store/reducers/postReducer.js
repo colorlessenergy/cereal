@@ -24,6 +24,14 @@ const postReducer = (state=initState, action) => {
         error: 'error retrieving post. Try again later'
       }
 
+    case 'CREATE_POST_SUCCESS':
+      return state;
+    
+    case 'CREATE_POST_ERROR':
+      return {
+        error: action.err
+      }
+
     default:
       return state;
   }

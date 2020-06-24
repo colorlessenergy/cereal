@@ -5,6 +5,7 @@ import { getAllPostAction } from '../../store/actions/postActions';
 
 import { Link } from 'react-router-dom';
 
+import renderHTML from 'react-render-html';
 
 
 class Home extends Component {
@@ -21,9 +22,9 @@ class Home extends Component {
           <h2>
             { post.cereal }
           </h2>
-          <p>
-            { post.content }
-          </p>
+          <div>
+            { renderHTML(post.content) }
+          </div>
         </Link>
       )
     }) : (null);
