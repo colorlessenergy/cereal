@@ -2,16 +2,22 @@ import React from 'react';
 
 import { connect } from 'react-redux';
 import { logOutUserAction } from '../../store/actions/authActions';
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
+import classes from './Nav.module.css';
+
 
 function LogInLinks (props) {
   return (
-    <div>
-      <Link to='/create'>Create</Link>
-      <button onClick={props.logOutUser}>
+    <nav>
+      <Link 
+        className={classes["nav__link"]}
+        to='/create'>Create</Link>
+      <button 
+        className={classes["nav__link"]}
+        onClick={props.logOutUser}>
         Log out
       </button>
-    </div>
+    </nav>
   )
 }
 

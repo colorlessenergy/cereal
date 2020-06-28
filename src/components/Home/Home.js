@@ -7,6 +7,8 @@ import { Link } from 'react-router-dom';
 
 import renderHTML from 'react-render-html';
 
+import classes from './Home.module.css';
+
 
 class Home extends Component {
   state = {
@@ -75,9 +77,11 @@ class Home extends Component {
     let posts = this.state.posts.length ? this.state.posts.map((post) => {
       return (
         <Link
+          className={classes['post']}
           key={post._id} 
           to={`/cereal/${post._id}`}>
-          <h2>
+          <h2
+            className={classes['post__title']}>
             { post.cereal }
           </h2>
           <div>
@@ -90,15 +94,16 @@ class Home extends Component {
     return (
       <div>
         <h1>cereal reviews</h1>
-        <div>
+        <div className={classes["filter"]}>
           <label htmlFor="filter-cereal">
             <input
+              className={classes["filter__input"]}
               onChange={this.filterPost}
               placeholder='filter post by cereal' 
               type="text" />
           </label>
         </div>
-        <div>
+        <div className={classes['posts']}>
           { posts }
           <p>
             {this.state.noReviewsForPostMessage}
