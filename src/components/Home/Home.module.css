@@ -1,0 +1,53 @@
+.filter {
+  text-align: center;
+}
+
+.filter__input {
+  width: 30%;
+  padding: 10px 5px;
+  
+  border: none;
+  background-color: #eee;
+  outline: none;
+}
+
+.posts {
+  margin: 20px 0;
+
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.post {
+  width: 30%;
+  margin: 0 10px 10px 0;
+  padding: 10px;
+
+  border: 1px solid #eee;
+
+  text-decoration: none;
+  color: #000;
+}
+
+.post__title {
+  text-decoration: underline;
+}
+
+@media screen and (max-width: 1036px) {
+  .filter__input {
+    width: 80%;
+  }
+  
+  .post {
+    width: 46%;
+  }
+}
+
+
+@media screen and (max-width: 621px) {
+  
+  
+  .post {
+    width: 100%;
+  }
+}
