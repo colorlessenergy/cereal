@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 import { logInUserAction } from '../../store/actions/authActions';
 import { Redirect } from 'react-router-dom';
 
+import classes from '../register-login-css/Form.module.css';
+
 class Login extends Component {
 
   state = {
@@ -26,28 +28,43 @@ class Login extends Component {
     if (auth.uid) return <Redirect to='/' />
 
     return (
-      <form onSubmit={this.handleSubmit}>
-        <label htmlFor="email">
-          email:
-        </label>
-        <input
-          onChange={this.handleChange} 
-          id="email" name="email" type="email"></input>
-        <label htmlFor="password">
-          password:
-        </label>
-        <input
-          onChange={this.handleChange} 
-          id="password" name="password" type="password"></input>
-        <button>
-          login
+      <div>
+        <h1>
+          Login
+        </h1>
+        <form onSubmit={this.handleSubmit}>
+          <div className={classes["form__group"]}>
+            <label htmlFor="email">
+              email:
+            </label>
+            <input
+              className={classes["form__input"]}
+              onChange={this.handleChange}
+              placeholder="email"
+              id="email" name="email" type="email" />
+          </div>
+          <div
+            className={classes["form__group"]}>
+            <label htmlFor="password">
+              password:
+          </label>
+            <input
+              className={classes["form__input"]}
+              onChange={this.handleChange}
+              placeholder="password"
+              id="password" name="password" type="password" />
+          </div>
+          <button
+            className={classes['form__button']}>
+            login
         </button>
-        <div>
-          {authError ? (<p>
-            {authError}
-          </p>) : (null)}
-        </div>
-      </form>
+          <div>
+            {authError ? (<p>
+              {authError}
+            </p>) : (null)}
+          </div>
+        </form>
+      </div>
     )
   }
 }

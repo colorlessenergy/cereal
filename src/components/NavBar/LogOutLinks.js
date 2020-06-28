@@ -6,7 +6,10 @@ import classes from './Nav.module.css';
 
 function LogOutLinks () {
   return (
-    <nav>
+    <nav className={classes['nav']}>
+      <Link
+        className={classes["nav__link"]}
+        to='/'>Cereal</Link>
       <Link 
         className={classes["nav__link"]}
         to="/login">login</Link>

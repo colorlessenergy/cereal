@@ -8,7 +8,10 @@ import classes from './Nav.module.css';
 
 function LogInLinks (props) {
   return (
-    <nav>
+    <nav className={classes['nav']}>
+      <Link
+        className={classes["nav__link"]}
+        to='/'>Cereal</Link>
       <Link 
         className={classes["nav__link"]}
         to='/create'>Create</Link>

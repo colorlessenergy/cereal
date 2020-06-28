@@ -1,0 +1,32 @@
+.form__group {
+  width: 40%;
+  margin-bottom: 20px;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.form__input {
+  margin: 10px 0;
+  padding: 10px 5px;
+
+  border: 1px solid #000;
+  outline: none;
+  font-size: 16px;
+}
+
+.form__button {
+  padding: 5px 10px;
+
+  background-color: #111;
+  border: 1px solid #eee;
+  color: #fff;
+  cursor: pointer;
+  font-size: 18px;
+
+  transition: background-color 0.3s ease-in-out;
+}
+
+.form__button:hover {
+  background-color: #333;
+}
