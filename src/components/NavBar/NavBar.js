@@ -8,13 +8,13 @@ import { connect } from 'react-redux';
 function NavBar(props) {
   const { auth } = props;
   return (
-    <div>
+    <>
       { auth.uid ? (
         <LogInLinks />
       ) : (
           <LogOutLinks />
       )}
-    </div>
+    </>
   )
 }
 
