@@ -89,7 +89,9 @@ class Home extends Component {
           </div>
         </Link>
       )
-    }) : (null);
+    }) : (<p>
+      posts are loading..
+    </p>);
 
     return (
       <div>
