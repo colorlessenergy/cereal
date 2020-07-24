@@ -1,0 +1,22 @@
+.form__button {
+  margin-top: 20px;
+  padding: 15px 30px;
+  
+  background-color: #333;
+  color: #fff;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 17px;
+  font-weight: 600;
+}
+
+.form__group {
+  margin: 20px 0;
+}
+
+@media screen and (min-width: 1600px) {
+  .form__radio { 
+    font-size: 20px;
+  }
+}

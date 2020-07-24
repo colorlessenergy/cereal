@@ -9,6 +9,8 @@ import { Redirect } from 'react-router-dom';
 
 import { createPostAction } from '../../store/actions/postActions';
 
+import classes from './CreatePost.module.css';
+
 class CreatePost extends Component {
   state = {
     content: '',
@@ -79,9 +81,9 @@ class CreatePost extends Component {
           create a post
         </h1>
         <form onSubmit={this.handleSubmit}>
-          <div>
-            <div>
-              <label htmlFor="cheerios">cheerios
+          <div className={classes['form__group']}>
+            <div className={classes['form__radio']}>
+              <label htmlFor="cheerios">
               <input
                 type="radio"
                 id="cheerios"
@@ -89,16 +91,18 @@ class CreatePost extends Component {
                 value="cheerios"
                 onChange={this.handleCerealChange}
                 checked />
+                cheerios
               </label>
             </div>
-            <div>
-              <label htmlFor="cinnamon_toast_crunch">cinnamon toast crunch
+            <div className={classes['form__radio']}>
+              <label htmlFor="cinnamon_toast_crunch">
               <input
                 type="radio"
                 id="cinnamon_toast_crunch"
                 name="cereal"
                 value="cinnamon toast crunch"
                 onChange={this.handleCerealChange} />
+                cinnamon toast crunch
               </label>
             </div>
           </div>
@@ -113,7 +117,7 @@ class CreatePost extends Component {
               placeholder='write something :D'
               onChange={this.handleChange} />
           </div>
-          <button>
+          <button className={classes['form__button']}>
             create
           </button>
           
