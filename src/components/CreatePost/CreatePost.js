@@ -84,25 +84,26 @@ class CreatePost extends Component {
           <div className={classes['form__group']}>
             <div className={classes['form__radio']}>
               <label htmlFor="cheerios">
-              <input
-                type="radio"
-                id="cheerios"
-                name="cereal"
-                value="cheerios"
-                onChange={this.handleCerealChange}
-                checked />
-                cheerios
+                <input
+                  type="radio"
+                  id="cheerios"
+                  name="cereal"
+                  value="cheerios"
+                  onChange={this.handleCerealChange}
+                  defaultChecked/>
+                  cheerios
               </label>
             </div>
             <div className={classes['form__radio']}>
               <label htmlFor="cinnamon_toast_crunch">
-              <input
-                type="radio"
-                id="cinnamon_toast_crunch"
-                name="cereal"
-                value="cinnamon toast crunch"
-                onChange={this.handleCerealChange} />
-                cinnamon toast crunch
+                <input
+                  type="radio"
+                  id="cinnamon_toast_crunch"
+                  name="cereal"
+                  value="cinnamon toast crunch"
+                  onChange={this.handleCerealChange}
+                   />
+                  cinnamon toast crunch
               </label>
             </div>
           </div>
