@@ -8,7 +8,8 @@ let userSchema = new Schema({
     unique: true,
     trim: true
   },
-  posts: [{ type: Schema.Types.ObjectId, ref: 'Post' }]
+  posts: [{ type: Schema.Types.ObjectId, ref: 'Post' }],
+  comments: [{type: Schema.Types.ObjectId, ref: 'Comment'}]
 });
 
 const User = mongoose.model('User', userSchema);

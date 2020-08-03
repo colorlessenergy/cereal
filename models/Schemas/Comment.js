@@ -1,11 +1,8 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-let postSchema = new Schema({
-  cereal: {
-    type: String,
-    required: true
-  },
+
+let commentSchema = new Schema({
   content: {
     type: String,
     required: true
@@ -16,10 +13,10 @@ let postSchema = new Schema({
   },
   createdBy: {
     type: Schema.Types.ObjectId, ref: 'User'
-  },
-  comments: [{ type: Schema.Types.ObjectId, ref: 'Comment' }]
+  }
 });
 
-const Post = mongoose.model('Post', postSchema);
 
-module.exports = Post;
+const Comment = mongoose.model('Comment', commentSchema);
+
+module.exports = Comment;
