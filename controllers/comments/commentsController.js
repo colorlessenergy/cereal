@@ -2,6 +2,25 @@ const Post = require('../../models/Schemas/Post');
 const Users = require('../../models/Schemas/Users');
 const Comments = require('../../models/Schemas/Comment');
 
+/**
+ * get all comments for a single post
+ * 
+ * @param {String} req.params.id - the id of the post
+ * @return {Object} - post with comments
+ */
+
+exports.getAllCommentsForAPost = function (req, res, next) {
+  Post.findById(req.params.id)
+    .populate('comments')
+    .exec()
+    .then(function (postWithComments) {
+      return res.json(postWithComments).status(200)
+    })
+    .catch(function (err) {
+      return res.status(403).send('error fetching comments');
+    });
+}
+
 
 /**
   create a comment.

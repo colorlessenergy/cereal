@@ -30,11 +30,11 @@ app.use(bodyParser.json());
 
 const usersRouter = require('./routes/userRouter');
 const postsRouter = require('./routes/postRouter');
-const commentsRouter = require('./routes/commentRouter');
+const commentRouter = require('./routes/commentRouter');
 
 app.use('/users', usersRouter);
 app.use('/posts', postsRouter);
-app.use('/comments', commentsRouter)
+app.use('/comments', commentRouter)
 
 app.listen(process.env.PORT || 3001, function () {
   console.log('listening on port 3001');
