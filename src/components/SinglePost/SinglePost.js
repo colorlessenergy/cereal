@@ -3,6 +3,8 @@ import React, {Component} from 'react';
 import { connect } from 'react-redux';
 import { getSinglePostByIdAction } from '../../store/actions/postActions';
 
+import Comments from '../Comments/Comments';
+
 import renderHTML from 'react-render-html';
 
 
@@ -25,6 +27,7 @@ class SinglePost extends Component {
     return (
       <div>
         {post}
+        <Comments postId={this.props.match.params.id}/>
         {this.props.error ? (<p>
            {this.props.error}
         </p>) : (null)
