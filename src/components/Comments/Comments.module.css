@@ -1,0 +1,42 @@
+.text-box {
+  width: 60%;
+}
+
+.form__button {
+  padding: 5px 10px;
+
+  background-color: #111;
+  border: 1px solid #eee;
+  color: #fff;
+  cursor: pointer;
+  font-size: 18px;
+
+  transition: background-color 0.3s ease-in-out;
+}
+
+.form__button:hover {
+  background-color: #333;
+}
+
+.date {
+  margin: 0 0 10px 0;
+}
+
+.comment {
+  margin: 10px 0;
+  padding: 0 0 10px 0;
+  width: 60%;
+
+  border-bottom: 1px solid #000;
+}
+
+.cta-comment {
+  padding: 10px;
+  width: 60%;
+
+  border: 1px solid #000;
+}
+
+.cta-comment__link {
+  color: #3f51b5;
+}

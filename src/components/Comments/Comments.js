@@ -3,11 +3,14 @@ import { connect } from 'react-redux';
 
 import { getAllCommentsForPostAction, createCommentForPostActon } from '../../store/actions/commentAction';
 
+import { Link } from 'react-router-dom';
+
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 
 import renderHTML from 'react-render-html';
 
+import classes from './Comments.module.css';
 
 
 class Comments extends Component {
@@ -54,7 +57,7 @@ class Comments extends Component {
   handleSubmit = (ev) => {
     ev.preventDefault();
 
-    if (this.state.content == '') {
+    if (this.state.content === '') {
       return this.setState({
         commentError: 'Missing Content'
       });
@@ -76,11 +79,19 @@ class Comments extends Component {
   render() {
 
     let comments = this.props.comments ? this.props.comments.comments.map(
-      function (comment) {
+      function (comment, index) {
+        // format the date for the comment to month day, year
+        let date = new Date(comment.createdAt);
+        let dateOptions = { year: 'numeric', month: 'long', day: 'numeric' };
+        date = date.toLocaleDateString('en-US', dateOptions);
+
         return (
-          <p>
-           { renderHTML(comment.content) }
-          </p>
+          <div key={index} className={classes['comment']}>
+            <p className={classes['date']}>{date}</p>
+            <div>
+              {renderHTML(comment.content)}
+            </div>
+          </div>
         )
       }
     ) : (
@@ -88,12 +99,9 @@ class Comments extends Component {
       )
     return (
       <div>
-        <p>
-          comments
-        </p>
         { this.props.auth.uid ? (
           <form onSubmit={this.handleSubmit}>
-            <div>
+            <div className={classes['text-box']}>
               <label htmlFor='content'></label>
               <ReactQuill
                 id="content"
@@ -103,15 +111,18 @@ class Comments extends Component {
                 placeholder='write something :D'
                 onChange={this.handleChange} />
             </div>
-            <button>
-              create
+            <button className={classes['form__button']}>
+              comment
             </button>
-            {this.props.err ? (<p>{this.props.err}</p>) : (null)}
-            {this.state.commentError ? (<p>{this.state.commentError}</p>) : (null)}
+            {this.props.err ? (<p className='error'>{this.props.err}</p>) : (null)}
+            {this.state.commentError ? (<p className='error'>{this.state.commentError}</p>) : (null)}
           </form>
-        ) : <p>
-          sign in to create a comment
+        ) : <p className={classes['cta-comment']}>
+            <Link className={classes['cta-comment__link']} to={'/login'}>sign in</Link> to create a comment
         </p> }
+        <p>
+          comments
+        </p>
         {comments}
       </div>
     )
